@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philomena's Portfolio</title>
+    <style>
+        .parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: 'Franklin Gothic Medium';
+        }
+        .container {
+            width: 95vw;
+            height: 85vh;
+            /* border: 1px solid red; */
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+        .right {
+            /* border: 1px solid blue; */
+            width: 25%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .middle {
+            /* border: 1px solid purple; */
+            width: 55%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .left {
+            border: 0.25px dotted black;
+            width: 20%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            /* flex-direction: column;
+            display: flex;
+            justify-content: space-between; */
+
+        }
+        img {
+            width: auto;
+            height: 100%;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: gray;
+        }
+        p {
+            font-family: 'Franklin Gothic Medium'; 
+        }
+        .about {
+            width: 80%;
+            font-family: "Franklin Gothic"; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 100; line-height: 17.6px;
+        }
+        .menu {
+            font-size: 16pt;
+            font-family: 'Franklin Gothic Medium';
+        }
+        .side {
+            height: 95%;
+            flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    </head>
+    <body>
+        <h1 style="text-align:center; font-size: 32pt;">P&nbsp;H&nbsp;I&nbsp;L&nbsp;O&nbsp;M&nbsp;E&nbsp;N&nbsp;A</h1>
+        <div class="parent">
+        <div class="container">
+            <div class="left">
+                <div class="side">
+                    <div class="menu">
+                        <ul class="menu"><a href="brands.html">BRANDS</a></ul>
+                        <ul class="menu"><a href="prints.html">PRINTS</a></ul>
+                        <ul class="menu"><a href="websites.html">WEBSITES</a></ul>
+                        <ul class="menu"><a href="photos.html">PHOTOGRAPHY</a></ul>
+                        <ul class="menu"><a href="drawings.html">DRAWINGS</a></ul>
+                    </div>
+                    <div class="about">
+                        <ul>Philomena is a Yale CS + Design alum specializing in creating digital designs for marketing.
+                            She loves bold and soft designs and feeling nostalgic about the early 2000s internet aesthetic.
+                            She considers herself a bad driver.</ul>
+                        <ul> Philomena is currently designing: her portfolio</ul>
+                    </div>
+                </div>
+            </div>
+            <div class="middle">
+                <img src="stilllife.jpg">
+            </div>
+            <div class="right">
+                <img src="pwposter.png">
+            </div>
+        </div>
+        </div>
+    </body>
