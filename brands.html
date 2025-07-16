@@ -33,14 +33,14 @@
             z-index: 10;
         }
         .right-grid {
-        display: grid;
-        grid-template-columns: 1fr;  /* 1 column */
-        grid-template-rows: repeat(4, auto);  /* 4 rows */
-        gap: 1rem;
-        width: 16%;      /* can adjust width to your needs */
-        height: auto;
-        margin: 0 auto;
-        /* border: 1px solid red; */
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, auto);
+            gap: 1rem;
+            width: 16%;     
+            height: auto;
+            margin: 0 auto;
+            /* border: 1px solid red; */
         }
         .right-grid > div {
             aspect-ratio: 1 / 1;
@@ -89,12 +89,12 @@
             color: gray;
         }
         .right-column {
-        display: flex;
-        flex-direction: row;  /* change from column to row */
-        gap: 1rem;
-        max-width: 99%;
-        overflow-x: hidden;
-        align-items: center; /* optional: vertically align slideshow and grid */
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            max-width: 99%;
+            overflow-x: hidden;
+            align-items: center;
         }
         * {box-sizing:border-box}
 
@@ -119,21 +119,37 @@
   display: block;
   margin: auto;
 }
+
 .images {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0rem; /* space between the images */
+    gap: 0rem;
     width: 80%;
     height: 100%;
     /* border: 1px solid blue; */
 }
 
+.imagesvertical {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.imagesvertical img {
+  height: calc((100% - 2rem) / 3);
+  width: auto;
+  object-fit: contain;
+}
+
+
 /* Hide the images by default */
 .mySlides {
-  height: 100%;       /* fill container height */
-  width: 100%;        /* fill container width */
-  display: none; /* default hidden */
+  height: 100%;
+  width: 100%;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -193,6 +209,7 @@
   text-align: center;
   background: none; /* remove background if you don’t want the overlay */
   padding: 4px 0;
+  font-family: Helvetica, sans-serif;
 }
 
 /* Number text (1/3 etc) */
@@ -212,6 +229,10 @@
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+body {
+  cursor: url("cursor.png"), auto;
 }
 </style>
 
@@ -261,7 +282,7 @@
                         <ul class="menu"><a class="amenu" href="drawings.html">DRAWINGS</a></ul>
                     </div>
                         <div class="about">
-                            <ul>Philomena is a Yale CS + Design alum specializing in creating designs for digital marketing.<br>
+                            <ul>Philomena is a Yale CS + Design alum specializing in branding and creating designs for digital marketing.<br>
                                 She loves bold and soft designs and feeling nostalgic about the early 2000s internet aesthetic.<br>
                                 She considers herself a bad driver.</ul>
                             <ul> Philomena is currently designing: her portfolio with VSCode</ul>
@@ -294,13 +315,15 @@
         <div class="mySlides fade" style="display: flex;">
             <img src="preservio.PNG" class="slide-img">
             <br>
-            <div class="text">Caption Text</div>
+            <div class="text"><strong>Role: Lead Brand Designer</strong><br><br>
+            Company: Preservio - A Yale-founded wine preserver start-up</div>
         </div>
 
         <div class="mySlides fade">
             <img src="preservio_identity.png" class="slide-img">
             <br>
-            <div class="text">Caption Two</div>
+            <div class="text">Formerly named Shinnkuu (meaning "vacuum" in Japanese), the founders wanted a full rebranding
+            and onboarded me<br> to create an identity that evoked elegance and could be both modern and timeless, like a bottle of fine wine. </div>
         </div>
         <div class="mySlides fade">
              <div class="images">
@@ -308,26 +331,135 @@
                 <img src="preservio_logo3.png" class="slide-img">
             </div>
             <br>
-            <div class="text">Caption Three</div>
+            <div class="text">When designing the first iteration of the new logo, I took heavy inspiration from the sleek design of the product itself.<br>
+            Using the design of the cap, I was able to create a flower symbol that could evoke freshness and preservation.<br>
+            For the name, I researched several wine bottles and was able to select a serif typeface that gave the design a classic<br>look that could balance
+            the more modern design of the product.</div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="preservio_package1.png" class="slide-img">
+            <img src="preservio_package2.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text">The final logo, however, became a combination of the old logo mark and new name - borrowing the geometric infinity symbol from the<br>
+                old branding with the new name. Above are 2 iterations of the new product packaging design utilizing the new identity. </div>
         </div>
 
         <div class="mySlides fade">
+            <img src="preservio_package_inside.png" class="slide-img">
+            <br>
+            <div class="text">A proposed design for the inside of the packaging that would provide a pop of color contrasting the dark exterior.</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="DP_YT_ActiveRed.png" class="slide-img">
+            <br>
+            <div class="text"><strong>Role: CAC Marketing/Graphic Design Intern</strong><br><br>
+            Company: LG Electronics (Air Solutions Division) </div>
+        </div>
+        <div class="mySlides fade">
+             <div class="imagesvertical">
+                <img src="LinkedIn Banner 1.png" class="slide-img">
+                <img src="LinkedIn Banner 2.png" class="slide-img">
+                <img src="LinkedIn Banner 3.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="Email Signature.png" class="slide-img" style="width: 70%;">
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="onboarding1.PNG" class="slide-img" style="width: 80%;">
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="onboarding2.PNG" class="slide-img" style="width: 80%;">
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="friendcentive.PNG" class="slide-img" style="width: 60%;">
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
             <div class="images">
-            <!-- <div class="numbertext">3 / 3</div> -->
-            <img src="preservio_package1.png" class="slide-img">
-            <img src="preservio_package2.png" class="slide-img">
+            <img src="Team Spirit Day Flyer-1.png" class="slide-img">
+            <img src="Scavenger Hunt Flyer-1.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text">The final logo, however, became a combination of the old logo mark and new name - borrowing the geometric infinity symbol from the<br>
+                old branding with the new name. Above are 2 iterations of the new product packaging design utilizing the new identity. </div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="Ice Cream Truck Flyer-1.png" class="slide-img">
+            <img src="Breakroom Banner Flyer-1.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text">The final logo, however, became a combination of the old logo mark and new name - borrowing the geometric infinity symbol from the<br>
+                old branding with the new name. Above are 2 iterations of the new product packaging design utilizing the new identity. </div>
+        </div>
+        <div class="mySlides fade">
+             <div class="imagesvertical">
+                <img src="activeredtemplate.PNG" class="slide-img" style="width: 70%;">
+                <img src="darkredtemplate.PNG" class="slide-img" style="width: 70%;">
+                <img src="blacktemplate.PNG" class="slide-img" style="width: 70%;">
+            </div>
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
+             <div class="imagesvertical">
+                <img src="activeredei1.PNG" class="slide-img" style="width: 70%;">
+                <img src="darkredei1.PNG" class="slide-img" style="width: 70%;">
+                <img src="blackei1.PNG" class="slide-img" style="width: 70%;">
+            </div>
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
+             <div class="imagesvertical">
+                <img src="lggraphic1.PNG" class="slide-img">
+                <img src="lggraphic2.PNG" class="slide-img">
+                <img src="lggraphic3.PNG" class="slide-img">
+            </div>
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
+            <img src="speakerlg.PNG" class="slide-img">
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
+             <div class="imagesvertical">
+                <img src="lglifestyle1.PNG" class="slide-img">
+                <img src="lglifestyle2.PNG" class="slide-img">
+                <img src="herculessquare.PNG" class="slide-img">
+            </div>
+            <br>
+            <div class="text">Caption Three</div>
+        </div>
+        <div class="mySlides fade">
+             <div class="imagesvertical">
+                <img src="mobilelg1.PNG" class="slide-img">
+                <img src="mobilelg2.PNG" class="slide-img">
+                <img src="podcast.PNG" class="slide-img">
             </div>
             <br>
             <div class="text">Caption Three</div>
         </div>
 
-        <div class="mySlides fade">
-            <!-- <div class="numbertext">3 / 3</div> -->
-            <img src="preservio_package_inside.png" class="slide-img">
-            <br>
-            <div class="text">Caption Three</div>
-        </div>
 
+
+
+
+        
         <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
