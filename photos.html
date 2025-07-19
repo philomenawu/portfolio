@@ -1,49 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Photography</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: 'Franklin Gothic Medium', sans-serif;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prints</title>
+    <style>
+        .parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: 'Franklin Gothic Medium';
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            /* width: 95vw; */
+            width: 100%;
+            max-width: 95vw;
+            /* height: 85vh; */
+            gap: 1rem; 
+        }
+        .left {
+            height: 85vh;
+            position: sticky;
+            border: 0.25px dotted black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            z-index: 10;
+        }
+        .right-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, auto);
+            gap: 1rem;
+            width: 16%;     
+            height: auto;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+        }
+        .right-grid > div {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .amenu {
+            text-decoration: none;
+            color: black;
+        }
+        .amenu:hover {
+            text-decoration: underline;
+            background-color: yellow;
+        }
+        p {
+            font-family: 'Franklin Gothic Medium'; 
+        }
+        .about {
+            width: 80%;
+            font-family: "Franklin Gothic"; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 100; line-height: 17.6px;
+        }
+        .menu {
+            font-size: 16pt;
+            font-family: 'Franklin Gothic Medium';
+        }
+        .side {
+            height: 95%;
+            flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+        }
+        mark {
+            background-color: yellow;
+        }
+        .home {
+            text-decoration: none;
+            color: black;
+        }
+        .home:hover {
+            color: gray;
+        }
+        .right-column {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            max-width: 99%;
+            overflow-x: hidden;
+            align-items: center;
+        }
+        * {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 99%;
+  max-width: 99%;
+  height: 55vh;
+  max-height: 55vh;
+  /* overflow: hidden; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 3px solid red; */
+}
+
+.slide-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0rem;
+    width: 80%;
+    height: 100%;
+    /* border: 1px solid blue; */
+}
+
+.imagesvertical {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.imagesvertical img {
+  height: calc((100% - 2rem) / 3);
+  width: auto;
+  object-fit: contain;
+}
+
+
+/* Hide the images by default */
+.mySlides {
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mySlides .images {
+  margin: 0 auto;      
+  justify-content: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 50%;
+  user-select: none;
+  border: 1px solid rgb(0, 0, 0);
+
+  /* Center the arrow */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Remove padding */
+  padding: 0;
+}
+.prev {
+    left: 0;
+    margin-left: 50px;
+    border-radius: 50%;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  margin-right: 50px;
+  border-radius: 50%;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: gray;
+}
+
+/* Caption text */
+.text {
+  position: static; /* remove absolute positioning */
+  margin-top: 0.5rem;
+  color: #000;
+  font-size: 15px;
+  text-align: center;
+  background: none; /* remove background if you don’t want the overlay */
+  padding: 4px 0;
+  font-family: Helvetica, sans-serif;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+body {
+  cursor: url("cursor.png"), auto;
+}
+</style>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+    showSlides(slideIndex += n);
     }
 
-    .container {
-      height: 90vh;
-      display: flex;
-      flex-direction: column; /* stack items vertically */
-      justify-content: center;
-      align-items: center;
+    // Thumbnail image controls
+    function currentSlide(n) {
+    showSlides(slideIndex = n);
     }
 
-    h1 {
-      margin-bottom: 1rem;
+    function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
     }
-
-    .home-button img {
-      width: 30px;   /* smaller size */
-      height: auto;
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
     }
-
-    .home-button {
-      display: inline-block;
-      margin-top: 1rem;
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
     }
-
-    .home-button:hover img {
-      opacity: 0.7;
-      cursor: pointer;
-    }
-  </style>
+</script>
 </head>
-<body>
-  <div class="container">
-    <h1>👷🏻‍♀️This page is currently under construction🛠️</h1>
-    <a href="index.html" class="home-button">
-      <img src="home.png" alt="Home button" />
-    </a>
-  </div>
-</body>
-</html>
+
+    <body>
+        <h1 style="text-align:center; font-size: 32pt;"><a class="home" href="index.html">P&nbsp;H&nbsp;I&nbsp;L&nbsp;O&nbsp;M&nbsp;E&nbsp;N&nbsp;A</a></h1>
+    <div class="parent">
+        <div class="container">
+            <div class="left">
+                <div class="side">
+                    <div class="menu">
+                        <ul class="menu"><a class="amenu" href="brands.html">BRANDS</a></ul>
+                        <ul class="menu"><a class="amenu" href="prints.html">PRINTS</a></ul>
+                        <ul class="menu"><a class="amenu" href="websites.html">WEBSITES</a></ul>
+                        <ul class="menu"><a class="amenu" href="photos.html">➤ PHOTOGRAPHY</a></ul>
+                    </div>
+                        <div class="about">
+                            <ul>Philomena is a Yale CS + Design alum specializing in branding and creating designs for digital marketing.<br>
+                                She loves bold and soft designs and feeling nostalgic about the early 2000s internet aesthetic.<br>
+                                She considers herself a bad driver.</ul>
+                            <ul> Philomena is currently designing: her portfolio with VSCode</ul>
+                        </div>
+                    </div>
+                </div>
