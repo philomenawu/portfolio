@@ -234,6 +234,20 @@
 body {
   cursor: url("cursor.png"), auto;
 }
+.iframe-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 85vh;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+.iframe-container iframe {
+  height: 100vh;
+  width: 100%;
+  border: none;
+  flex-shrink: 0; /* Prevent shrinking */
+}
 </style>
 
 <script>
@@ -287,4 +301,18 @@ body {
                             <ul> Philomena is currently designing: her portfolio with VSCode</ul>
                         </div>
                     </div>
+                </div>
+                <div class="iframe-container">
+                    <img src="bar.jpg">
+                    <img src="bench2.jpg">
+                    <img src="backturned.jpg">
+                    <img src="ghc.jpg">
+                    <img src="jessiehair.jpg">
+                    <img src="buttery.jpg">
+                    <img src="swing.jpg">
+                    <img src="birds.jpg">
+                    <img src="handonface2.jpg">
+                    <img src="mary.jpg">
+                    <img src="fatima2.jpg">
+                    <img src="ice2.jpg">
                 </div>
