@@ -248,6 +248,142 @@ body {
   border: none;
   flex-shrink: 0; /* Prevent shrinking */
 }
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-family: 'Franklin Gothic Medium';
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    max-width: 100vw; 
+    width: 100vw;       
+    margin: 0;          
+    padding: 0;          
+  }
+  .side {
+    align-items: center;
+  }
+
+    .hamburger {
+    display: block; /* show on mobile */
+    text-align: center;
+    width: 100vw;
+  }
+  #menuContainer {
+    display: none; /* hidden by default */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: white;
+    width: 100%;
+  }
+
+  #menuContainer.show {
+    display: flex; /* show when toggled */
+  }
+
+  .left {
+    height: auto; /* remove fixed height */
+    position: relative;
+    width: 100vw;
+    border: none;
+    margin-top: 1rem;
+  }
+
+          .left.fullscreen {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background-color: white;
+          z-index: 9999;
+          overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          padding-top: 1rem;
+            border: none;
+          margin: 0;
+          padding: 1rem;
+          /* padding-left: 0; */
+          /* padding-right: 1rem; */
+          box-sizing: border-box;
+        }
+
+        /* Remove left margin/padding on children to avoid gap */
+        .left.fullscreen .side {
+          margin: 0;
+          padding-left: 0;
+          width: 100%;
+        }
+        .left.fullscreen .menu {
+          margin-left: 0;
+          padding-left: 0;
+          width: 100%;
+        }
+        .left.fullscreen .about {
+          margin-left: 0;
+          padding-left: 0;
+          width: 100%;
+        }
+                #menuContainer {
+            padding-left: 0;
+            padding-right: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        #menuContainer ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0 0 1rem 0; /* optional bottom spacing */
+        }
+
+        #menuContainer ul a.amenu {
+            display: inline-block; /* so text-align center works */
+            width: auto;           /* don't stretch full width */
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+
+  /* Container and parent full width without extra margin/padding */
+  .parent, .container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  /* Side-by-side container should center content */
+  .side-by-side {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: center; /* center the image */
+  }
+
+  h1 {
+    display: none;
+  }
+
+  .iframe-container {
+    width: 98vw;
+  }
+  img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+}
 </style>
 
 <script>
@@ -279,6 +415,14 @@ body {
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
     }
+
+    function toggleMenu() {
+        const menu = document.getElementById("menuContainer");
+        const left = document.querySelector(".left");
+        
+        menu.classList.toggle("show");
+        left.classList.toggle("fullscreen");
+    }
 </script>
 </head>
 
@@ -286,22 +430,27 @@ body {
         <h1 style="text-align:center; font-size: 32pt;"><a class="home" href="index.html">P&nbsp;H&nbsp;I&nbsp;L&nbsp;O&nbsp;M&nbsp;E&nbsp;N&nbsp;A</a></h1>
     <div class="parent">
         <div class="container">
-            <div class="left" style="position: sticky;">
-                <div class="side">
-                    <div class="menu">
-                        <ul class="menu"><a class="amenu" href="brands.html">BRANDS</a></ul>
-                        <ul class="menu"><a class="amenu" href="prints.html">PRINTS</a></ul>
-                        <ul class="menu"><a class="amenu" href="websites.html">➤ WEBSITES</a></ul>
-                        <ul class="menu"><a class="amenu" href="photos.html">PHOTOGRAPHY</a></ul>
-                    </div>
+                <div class="left">
+                    <!-- Hamburger button (only visible on mobile) -->
+                    <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+                    <div class="side" id="menuContainer">
+                        <div class="menu">
+                           <ul><a class="amenu" href="index.html">HOME</a></ul>
+                            <ul><a class="amenu" href="brands.html">BRANDS</a></ul>
+                            <ul><a class="amenu" href="prints.html">PRINTS </a></ul>
+                            <ul><a class="amenu" href="websites.html">➤ WEBSITES</a></ul>
+                            <ul><a class="amenu" href="photos.html">PHOTOGRAPHY</a></ul>
+                           
+                        </div>
                         <div class="about">
                             <ul>Philomena is a Yale CS + Design alum specializing in branding and creating designs for digital marketing.<br>
                                 She loves bold and soft designs and feeling nostalgic about the early 2000s internet aesthetic.<br>
                                 She considers herself a bad driver.</ul>
-                            <ul> Philomena is currently designing: her portfolio with VSCode</ul>
+                            <ul>Philomena is currently designing: her portfolio with VSCode</ul>
                         </div>
                     </div>
-                </div>
+                 </div>
                 <div class="iframe-container">
                   <iframe src="https://www.yalewgics.com/"></iframe>
                   <iframe src="https://campuspress.yale.edu/nihongoyale/"></iframe>
@@ -313,5 +462,4 @@ body {
                   <iframe src="https://philomenawu.github.io/interactive/project1/space.html"></iframe>
                   <iframe src="https://philomenawu.github.io/interactive/project2/index.html"></iframe>
                   <iframe src="https://philomenawu.github.io/interactive/exercises/enzomari_remix/index.html"></iframe>
-                  <iframe src="https://philomenawu.github.io/interactive/exercises/websiteas.html"></iframe>
                 </div>
