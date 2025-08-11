@@ -1,3 +1,452 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prints</title>
+    <style>
+        .parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-family: 'Franklin Gothic Medium';
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            /* width: 95vw; */
+            width: 100%;
+            max-width: 95vw;
+            /* height: 85vh; */
+            gap: 1rem; 
+        }
+        .left {
+            height: 85vh;
+            position: sticky;
+            border: 0.25px dotted black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            z-index: 10;
+        }
+        .right-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, auto);
+            gap: 1rem;
+            width: 16%;     
+            height: auto;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+        }
+        .right-grid > div {
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .amenu {
+            text-decoration: none;
+            color: black;
+        }
+        .amenu:hover {
+            text-decoration: underline;
+            background-color: yellow;
+        }
+        p {
+            font-family: 'Franklin Gothic Medium'; 
+        }
+        .about {
+            width: 80%;
+            font-family: "Franklin Gothic"; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 100; line-height: 17.6px;
+        }
+        .menu {
+            font-size: 16pt;
+            font-family: 'Franklin Gothic Medium';
+        }
+        .side {
+            height: 95%;
+            flex-direction: column;
+            display: flex;
+            justify-content: space-between;
+        }
+        mark {
+            background-color: yellow;
+        }
+        .home {
+            text-decoration: none;
+            color: black;
+        }
+        .home:hover {
+            color: gray;
+        }
+        .right-column {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            max-width: 99%;
+            overflow-x: hidden;
+            align-items: center;
+        }
+        * {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  width: 99%;
+  max-width: 99%;
+  height: 55vh;
+  max-height: 55vh;
+  /* overflow: hidden; */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 3px solid red; */
+}
+
+.slide-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0rem;
+    width: 80%;
+    height: 100%;
+    /* border: 1px solid blue; */
+}
+
+.imagesvertical {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.imagesvertical img {
+  height: calc((100% - 2rem) / 3);
+  width: auto;
+  object-fit: contain;
+}
+
+
+.mySlides {
+  height: 100%;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mySlides .images {
+  margin: 0 auto;      
+  justify-content: center;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 50%;
+  user-select: none;
+  border: 1px solid rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+.prev {
+    left: 0;
+    margin-left: 50px;
+    border-radius: 50%;
+}
+
+
+.next {
+  right: 0;
+  margin-right: 50px;
+  border-radius: 50%;
+}
+
+.prev:hover, .next:hover {
+  background-color: gray;
+}
+
+
+.text {
+  position: static;
+  margin-top: 0.5rem;
+  color: #000;
+  font-size: 15px;
+  text-align: center;
+  background: none;
+  padding: 4px 0;
+  font-family: Helvetica, sans-serif;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+body {
+  cursor: url("cursor.png"), auto;
+}
+</style>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+
+    function plusSlides(n) {
+    showSlides(slideIndex += n);
+    }
+
+
+    function currentSlide(n) {
+    showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    }
+</script>
+</head>
+
+    <body>
+        <h1 style="text-align:center; font-size: 32pt;"><a class="home" href="index.html">P&nbsp;H&nbsp;I&nbsp;L&nbsp;O&nbsp;M&nbsp;E&nbsp;N&nbsp;A</a></h1>
+    <div class="parent">
+        <div class="container">
+            <div class="left">
+                <div class="side">
+                    <div class="menu">
+                        <ul class="menu"><a class="amenu" href="brands.html">BRANDS</a></ul>
+                        <ul class="menu"><a class="amenu" href="prints.html">➤ PRINTS</a></ul>
+                        <ul class="menu"><a class="amenu" href="websites.html">WEBSITES</a></ul>
+                        <ul class="menu"><a class="amenu" href="photos.html">PHOTOGRAPHY</a></ul>
+                    </div>
+                        <div class="about">
+                            <ul>Philomena is a Yale CS + Design alum specializing in branding and creating designs for digital marketing.<br>
+                                She loves bold and soft designs and feeling nostalgic about the early 2000s internet aesthetic.<br>
+                                She considers herself a bad driver.</ul>
+                            <ul> Philomena is currently designing: her portfolio with VSCode</ul>
+                        </div>
+                    </div>
+                </div>
+
+
+   <div class="right-column">
+
+    <div class="slideshow-container">
+
+  
+        <div class="mySlides fade" style="display: flex;">
+             <div class="images">
+                <img src="flyerskabuki.png" class="slide-img">
+                <img src="flyerskabuki2.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="kabukipostcard3.png" class="slide-img">
+            <img src="kabukipostcard32.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="kabukipostcard33.png" class="slide-img">
+            <img src="kabukipostcard34.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="kabukicards.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="igpost2.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="Bushido_Manifesto-1.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="GD1.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="T2.gif" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="pwposterfin-1.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="poeticpragmatic.png" class="slide-img" style="width: 55%;">
+            <img src="poeticpragmaticinside.png" class="slide-img" style="width: 55%;">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="dustjacket.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="booklet.gif" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="dustjacket3.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="dustjacket2.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="quiet.png" class="slide-img">
+            <img src="quietv33.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="modular_specimen_spacedash-1.png" class="slide-img">
+            <img src="modular_specimen_spacedash-2.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="T1.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="hierarchy-1.png" class="slide-img">
+            <img src="hierarchy-2.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="hierarchy-3.png" class="slide-img">
+            <img src="hierarchy-4.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="Water_Layout.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="posterf62-1.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="pm-05.jpg" class="slide-img">
+            <img src="pm-06.PNG" class="slide-img">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <div class="images">
+            <img src="4bars.png" class="slide-img">
+            <img src="phase.png" class="slide-img">
+            </div>
+            <br>
+            <div class="text"></div>
+        </div>
+        <div class="mySlides fade">
+            <img src="blckmntvf-1.png" class="slide-img">
+            <br>
+            <div class="text"></div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+    </div>
+</div>
+    </body> -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -234,6 +683,35 @@
 body {
   cursor: url("cursor.png"), auto;
 }
+.iframe-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 85vh;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+.iframe-container img {
+  max-height: 95%;
+  width: auto;
+  object-fit: contain;
+  border: none;
+  flex-shrink: 0;
+  display: block;
+  margin: 0 auto;
+}
+.side-by-side {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-by-side img {
+    max-width: 40%;
+    height: auto;
+    object-fit: contain;
+}
 </style>
 
 <script>
@@ -288,173 +766,59 @@ body {
                         </div>
                     </div>
                 </div>
+                <div class="iframe-container">
+                    <div class="side-by-side">
+                        <img src="flyerskabuki.png">
+                        <img src="flyerskabuki2.png">
+                    </div>
+                    <div class="side-by-side">
+                        <img src="kabukipostcard3.png">
+                        <img src="kabukipostcard32.png">
+                    </div>
+                    <div class="side-by-side">
+                        <img src="kabukipostcard33.png">
+                        <img src="kabukipostcard34.png">
+                    </div>
+                    <img src="kabukicards.png" style="width: 80%;">
+                    <img src="igpost2.png">
+                    <img src="Bushido_Manifesto-1.png">
+                    <img src="GD1.png">
+                    <img src="T2.gif">
+                    <img src="pwposterfin-1.png">
 
-  <!-- Right content grid -->
-   <div class="right-column">
+                    <img src="poeticpragmatic.png">
+                    <img src="poeticpragmaticinside.png">
 
-    <div class="slideshow-container">
-
-        <!-- Full-width images with number and caption text -->
-        <div class="mySlides fade" style="display: flex;">
-             <div class="images">
-                <img src="flyerskabuki.png" class="slide-img">
-                <img src="flyerskabuki2.png" class="slide-img">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <div class="images">
-            <img src="kabukipostcard3.png" class="slide-img">
-            <img src="kabukipostcard32.png" class="slide-img">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <div class="images">
-            <img src="kabukipostcard33.png" class="slide-img">
-            <img src="kabukipostcard34.png" class="slide-img">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="kabukicards.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="igpost2.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="Bushido_Manifesto-1.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="GD1.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="T2.gif" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="pwposterfin-1.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <div class="images">
-            <img src="poeticpragmatic.png" class="slide-img" style="width: 55%;">
-            <img src="poeticpragmaticinside.png" class="slide-img" style="width: 55%;">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="dustjacket.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="booklet.gif" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="dustjacket3.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="dustjacket2.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <div class="images">
-            <img src="quiet.png" class="slide-img">
-            <img src="quietv33.png" class="slide-img">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <div class="images">
-            <img src="modular_specimen_spacedash-1.png" class="slide-img">
-            <img src="modular_specimen_spacedash-2.png" class="slide-img">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="T1.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <div class="images">
-            <img src="hierarchy-1.png" class="slide-img">
-            <img src="hierarchy-2.png" class="slide-img">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <div class="images">
-            <img src="hierarchy-3.png" class="slide-img">
-            <img src="hierarchy-4.png" class="slide-img">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="Water_Layout.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="posterf62-1.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <div class="images">
-            <img src="pm-05.jpg" class="slide-img">
-            <img src="pm-06.PNG" class="slide-img">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <div class="images">
-            <img src="4bars.png" class="slide-img">
-            <img src="phase.png" class="slide-img">
-            </div>
-            <br>
-            <div class="text"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="blckmntvf-1.png" class="slide-img">
-            <br>
-            <div class="text"></div>
-        </div>
-
-
-
-        
-        <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <br>
-
-    </div>
-</div>
-    </body>
+                    <img src="dustjacket.png" style="width: 80%;">
+                    <img src="booklet.gif">
+                    <img src="dustjacket3.png" style="width: 80%;">
+                    <img src="dustjacket2.png" style="width: 80%;">
+                    <div class="side-by-side">
+                        <img src="quiet.png">
+                        <img src="quietv33.png">
+                    </div>
+                    <div class="side-by-side">
+                        <img src="modular_specimen_spacedash-1.png">
+                        <img src="modular_specimen_spacedash-2.png">
+                    </div>
+                    <img src="T1.png">
+                    <div class="side-by-side">
+                        <img src="hierarchy-1.png">
+                        <img src="hierarchy-2.png">
+                    </div>
+                    <div class="side-by-side">
+                        <img src="hierarchy-3.png">
+                        <img src="hierarchy-4.png">
+                    </div>
+                    <img src="Water_Layout.png" style="width: 80%;">
+                    <img src="posterf62-1.png">
+                    <div class="side-by-side">
+                        <img src="pm-05.jpg">
+                        <img src="pm-06.PNG">
+                    </div>
+                    <div class="side-by-side">
+                        <img src="4bars.png">
+                        <img src="phase.png">
+                    </div>
+                    <img src="blckmntvf-1.png">
+                </div>

@@ -242,11 +242,14 @@ body {
   overflow-y: auto;
   padding-right: 1rem;
 }
-.iframe-container iframe {
-  height: 100vh;
-  width: 100%;
+.iframe-container img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
   border: none;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
+  display: block;
+  margin: 0 auto;
 }
 </style>
 
