@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prints</title>
+    <title>Philomena's Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
             align-items: center;
         }
         h1 {
-            font-family: "Outfit", sans-serif;
+           font-family: "Outfit", sans-serif;
         }
         .container {
             display: grid;
@@ -69,12 +69,12 @@
         }
         .about {
             width: 80%;
-         font-family: "Outfit", sans-serif;
+            font-family: "Outfit", sans-serif;
             font-size: 16px;
         }
         .menu {
             font-size: 16pt;
-            font-family: "Outfit", sans-serif;
+           font-family: "Outfit", sans-serif;
         }
         .side {
             height: 95%;
@@ -243,7 +243,7 @@ body {
   flex-direction: column;
   gap: 2rem;
   height: 85vh;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   padding-right: 1rem;
 }
 .iframe-container img {
@@ -264,15 +264,16 @@ body {
 
 .side-by-side img {
     max-width: 40%;
-    height: auto;
+    max-height: 80%;
     object-fit: contain;
 }
+
 .hamburger {
   display: none;
   background: none;
   border: none;
   font-size: 1.5rem;
- font-family: "Outfit", sans-serif;
+  font-family: "Outfit", sans-serif;
   cursor: pointer;
   margin-bottom: 1rem;
 }
@@ -289,7 +290,7 @@ body {
     align-items: center;
   }
 
-    .hamburger {
+  .hamburger {
     display: block; /* show on mobile */
     text-align: center;
     width: 100vw;
@@ -359,13 +360,13 @@ body {
             padding-right: 0;
             width: 100%;
             text-align: center;
+            overflow-y: auto;
         }
 
         #menuContainer ul {
             list-style: none;
             padding-left: 0;
             margin: 0 0 1rem 0; /* optional bottom spacing */
-            overflow-y: auto;
         }
 
         #menuContainer ul a.amenu {
@@ -375,6 +376,16 @@ body {
             padding: 0.5rem 0;
         }
 
+          html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-image: url("pwposterfin-1.png");
+    background-size: cover;   /* or 'cover', but contain avoids cropping */
+  background-repeat: no-repeat;   /* prevent tiling */
+  background-position: center;    /* center the image */
+  background-attachment: fixed;   /* optional, keeps background fixed when scrolling */
+  }
 
   /* Container and parent full width without extra margin/padding */
   .parent, .container {
@@ -383,70 +394,40 @@ body {
     width: 100%;
   }
 
+  /* iframe container fills width with no padding */
+  .iframe-container {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Hide first image */
+  .side-by-side img:first-child {
+    display: none;
+  }
+
   /* Side-by-side container should center content */
   .side-by-side {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 0;
     justify-content: center; /* center the image */
   }
 
+  /* Second image takes up max 90-95% width and is centered */
+  .side-by-side img:last-child {
+    display: none;
+  }
   h1 {
     display: none;
   }
+}
 
-  .iframe-container {
-    width: 98vw;
-  }
-  img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-}
+
 </style>
-
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    // Next/previous controls
-    function plusSlides(n) {
-    showSlides(slideIndex += n);
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-    showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
-    }
-    function toggleMenu() {
-        const menu = document.getElementById("menuContainer");
-        const left = document.querySelector(".left");
-        
-        menu.classList.toggle("show");
-        left.classList.toggle("fullscreen");
-    }
-</script>
-</head>
-
+    </head>
     <body>
-        <h1 style="text-align:center; font-size: 32pt;"><a class="home" href="index.html">P&nbsp;H&nbsp;I&nbsp;L&nbsp;O&nbsp;M&nbsp;E&nbsp;N&nbsp;A</a></h1>
+    <h1 style="text-align:center; font-size: 32pt;"><a class="home" href="index.html">P&nbsp;H&nbsp;I&nbsp;L&nbsp;O&nbsp;M&nbsp;E&nbsp;N&nbsp;A</a></h1>
     <div class="parent">
         <div class="container">
                 <div class="left">
@@ -455,9 +436,9 @@ body {
 
                     <div class="side" id="menuContainer">
                         <div class="menu">
-                            <ul><a class="amenu" href="home.html">HOME</a></ul>
+                             <ul><a class="amenu" href="home.html">HOME</a></ul>
                             <ul><a class="amenu" href="brands.html">BRANDS</a></ul>
-                            <ul><a class="amenu" href="prints.html">➤ PRINTS </a></ul>
+                            <ul><a class="amenu" href="prints.html">PRINTS</a></ul>
                             <ul><a class="amenu" href="websites.html">WEBSITES</a></ul>
                             <ul><a class="amenu" href="photos.html">PHOTOGRAPHY</a></ul>
                         </div>
@@ -471,60 +452,16 @@ body {
                  </div>
                 <div class="iframe-container">
                     <div class="side-by-side">
-                        <img src="flyerskabuki.png">
-                        <img src="flyerskabuki2.png">
+                        <img src="stilllife.jpg">
+                        <img src="pwposterfin-1.png">
                     </div>
-                    <div class="side-by-side">
-                        <img src="kabukipostcard3.png">
-                        <img src="kabukipostcard32.png">
-                    </div>
-                    <div class="side-by-side">
-                        <img src="kabukipostcard33.png">
-                        <img src="kabukipostcard34.png">
-                    </div>
-                    <img src="kabukicards.png" style="width: 80%;">
-                    <img src="igpost2.png">
-                    <img src="Bushido_Manifesto-1.png">
-                    <img src="GD1.png">
-                    <img src="T2.gif">
-                    <img src="pwposterfin-1.png">
-
-                    <img src="poeticpragmatic.png">
-                    <img src="poeticpragmaticinside.png">
-
-                    <img src="dustjacket.png" style="width: 80%;">
-                    <img src="booklet.gif">
-                    <img src="dustjacket3.png" style="width: 80%;">
-                    <img src="dustjacket2.png" style="width: 80%;">
-                    <div class="side-by-side">
-                        <img src="quiet.png">
-                        <img src="quietv33.png">
-                    </div>
-                    <div class="side-by-side">
-                        <img src="modular_specimen_spacedash-1.png">
-                        <img src="modular_specimen_spacedash-2.png">
-                    </div>
-                    <img src="T1.png">
-                    <div class="side-by-side">
-                        <img src="hierarchy-1.png">
-                        <img src="hierarchy-2.png">
-                    </div>
-                    <div class="side-by-side">
-                        <img src="hierarchy-3.png">
-                        <img src="hierarchy-4.png">
-                    </div>
-                    <img src="Water_Layout.png" style="width: 80%;">
-                    <img src="posterf62-1.png">
-                    <div class="side-by-side">
-                        <img src="pm-05.jpg">
-                        <img src="pm-06.PNG">
-                    </div>
-                    <div class="side-by-side">
-                        <img src="4bars.png">
-                        <img src="phase.png">
-                    </div>
-                    <img src="blckmntvf-1.png">
                 </div>
-                </div>
-                </div>
-                </body>
+<script>
+function toggleMenu() {
+  const menu = document.getElementById("menuContainer");
+  const left = document.querySelector(".left");
+  
+  menu.classList.toggle("show");
+  left.classList.toggle("fullscreen");
+}
+</script>
